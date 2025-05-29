@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        .child{
+            background-color: lightblue;
+            padding: 20px;
+            /* margin: 10px; */
+            border: 1px solid blue;
+            font-size: 30px;
+        }
+        .parent{
+            height: 50vh;
+            padding: 20px;
+            background-color: rgb(17, 46, 17);
+            display: grid;
+            /* grid-template-columns: 200px 600px 500px; */
+            gap: 20px;
+            /* column-gap: 50px; */
+            /* row-gap: 200px;  */
+            /* column-gap: 20px; horizontal gap */
+            /* grid-template-columns: 5fr 1fr 2fr; */
+            grid-template-columns: repeat(5, auto);
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child" >Child 1</div>
+        <div class="child" >Child 2</div>
+        <div class="child" >Child 3</div>
+        <div class="child" >Child 4</div>
+        <div class="child" >Child 5</div>
+    </div>
+</body>
+</html>

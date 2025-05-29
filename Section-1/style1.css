@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Montserrat';
+}
+body{
+    color: white;
+    /* background-color: #000; */
+    background-image: url('https://images.pexels.com/photos/391522/pexels-photo-391522.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.card{
+    background-color: rgba(0, 0, 0, 0.219);
+    width: 30%;
+    padding: 30px;
+    border-radius: 10px;
+}
+.heading{
+    text-align: center;
+    font-size: 40px;
+    color: black;
+    margin-bottom: 40px;
+}
+.form-label{
+    font-size: 25px;
+    margin-bottom: 20px;
+    display: block;
+    color: black;
+}
+.form-input{
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 40px;
+    border: none;
+}
+.btn{
+    width: 100%;
+    padding: 10px;
+    border-radius: 40px;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(71, 71, 239);
+    margin-top: 40px;
+}

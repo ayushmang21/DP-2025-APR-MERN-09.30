@@ -1,0 +1,27 @@
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(14, 107, 57);
+    border-radius: 5%;
+    box-shadow: -50px -50px 10px 50px  rgb(77, 28, 28);
+
+    margin: 100px 200px 300px 400px;
+
+    border: 5px solid rgb(255, 0, 0);
+
+    padding: 80px 30px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    /* font-family: 'Playwrite US Modern Guides'; */
+}
+.head1{
+    font-weight: 400;
+    text-decoration: underline;
+    /* text-align: ; */
+    text-shadow: 5px 5px 10px purple;
+}
