@@ -37,4 +37,13 @@ const prices = [520, 1450, 210, 9800, 710]
 
 
 // ADD 18% gst to all the prices and store the new prices in a new array.
+
+const gst = []
+
+prices.forEach((p) =>{
+    gst.push(p + (p * 0.18));
+})
+
+console.log(gst);
+
 // Add 12% discount to all the prices and store the new prices in a new array.
