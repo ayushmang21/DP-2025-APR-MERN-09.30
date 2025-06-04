@@ -44,4 +44,3 @@ movies.splice(2, 0, 'Avengers: Secret Wars'); // Adds 'Avengers: Secret Wars' at
 movies.splice(2, 1, 'Avengers: The Kang Dynasty'); // Replaces the element at index 2 with 'Avengers: The Kang Dynasty'
 
 console.log(movies);
-
