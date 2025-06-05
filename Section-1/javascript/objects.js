@@ -66,3 +66,7 @@ console.log(smartphoneArray[1]);
 // Add new color to 2nd smartphone.
 // Change price of 3rd smartphone to 49999.
 // replace first two colors of 3rd smartphone with "Blue" and "Red".
+
+smartphoneArray[2].colors[0] = 'Blue'
+smartphoneArray[2].colors[1] = 'Red'
+console.log(smartphoneArray[2]);
