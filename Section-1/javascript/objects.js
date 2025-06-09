@@ -2,7 +2,8 @@ const user = {
     name: 'John',
     age: 30,
     email: 'john@gmail.com',
-    password: 'abc123'
+    password: 'abc123',
+    phn: 7845125785,
 }
 
 console.log(user);
@@ -70,3 +71,31 @@ console.log(smartphoneArray[1]);
 smartphoneArray[2].colors[0] = 'Blue'
 smartphoneArray[2].colors[1] = 'Red'
 console.log(smartphoneArray[2]);
+
+// Practice questions:
+
+// 1. How would you access John's email from the user object?
+
+// 2. Write code to add a 'warranty' property with value '2 years' to the first smartphone object.
+
+// 3. How would you find the total price of all smartphones in the smartphoneArray?
+
+const sum = smartphoneArray[0].price + smartphoneArray[1].price + smartphoneArray[2].price;
+
+console.log(sum); // Total price of all smartphones
+
+// 4. Create a function that takes smartphoneArray and returns an array containing only the brand names
+
+const brand = [];
+smartphoneArray.forEach((s) => {
+    brand.push(s.brand);
+});
+console.log(brand); // Array of brand names
+
+// 5. Write code to check if any smartphone in the array has the color "Purple"
+
+console.log(smartphoneArray[2].colors.includes("Purple")); // Check if "Purple" is in the colors of the third smartphone.
+
+// 6. Add a new smartphone object to smartphoneArray with brand "Xiaomi", model "Mi 11", price 45000, and colors ["Black", "Blue"]
+
+
