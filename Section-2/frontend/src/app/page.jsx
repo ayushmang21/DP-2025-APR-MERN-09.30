@@ -8,8 +8,8 @@ const page = () => {
       <div className='text-9xl text-amber-600' >Hello World</div>
 
       <Btn />
-      <Card title= "ABc" description="ffughhih" />
-      <Card title= "ABdjqwjdowqjdojc" description="fewfwefwefewfewfih" />
+      <Card title="ABc" description="ffughhih" />
+      <Card title="ABdjqwjdowqjdojc" description="fewfwefwefewfewfih" />
 
     </div>
   )
