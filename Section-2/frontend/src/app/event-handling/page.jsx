@@ -3,7 +3,17 @@ import React from 'react'
 
 const EventHandling = () => {
 
-    const previewImage = (e) => {};
+    const previewImage = (e) => {
+        const file = e.target.files[0]; // Get the first file from the FileList
+        const reader = new FileReader(); // Create a new FileReader instance
+        reader.onload = (data) => { // When the file is loaded, this function will be called
+            const img = new Image(); // Create a new Image element
+            img.src = data.target.result; // Set the source of the image to the data URL
+            img.style.maxWidth = '50%'; // Set the maximum width of the image
+            document.body.appendChild(img); // Append the image to the body
+        }
+        reader.readAsDataURL(file); // Read the file as a data URL
+    };
 
     return (
         <div className='container mx-auto p-4'>
