@@ -9,15 +9,23 @@ const Todo = () => {
     const [taskList, setTaskList] = useState([]);
 
     const addNewTask = (e) => {
-        if(e.code === 'Enter') {
+        if (e.code === 'Enter') {
             console.log('New Task:', e.target.value);
 
             const newTask = { text: e.target.value, completed: false };
-            setTaskList([ newTask, ...taskList ]); // Add new task to the beginning of the list
+            setTaskList([newTask, ...taskList]); // Add new task to the beginning of the list
 
             e.target.value = ''; // Clear the input field after adding the task
-            
+
         }
+    }
+
+    const updateTask = (index) => {
+        // console.log(index);
+
+        const temp = taskList;
+        temp[index].completed = !temp[index].completed; // Toggle the completed status
+        setTaskList([...temp]); // Update the task list with the modified task  
     }
 
     return (
@@ -30,10 +38,43 @@ const Todo = () => {
                     Increment
                 </button> */}
 
-                <div className='p-5 border-2 border-gray-300 rounded-lg mb-5'>
+                <div className='p-5 border-2 border-gray-300 rounded-lg'>
                     <input type="text" className='w-full px-3 py-2 border-b-2 border-gray-200 outline-0'
                         placeholder='Enter task here...'
                         onKeyDown={addNewTask} />
+                </div>
+
+                <div className='p-5 px-10 border-2 border-gray-300 rounded-lg mt-5'>
+                    <h1 className='text-2xl font-bold mb-5'>Tasks</h1>
+                    {
+                        taskList.map((task, index) => {
+                            return (
+                                <div key={index} className='border-b border-l p-3 mb-8'>
+
+                                    {
+                                        task.completed
+                                            ?
+                                            <p className='p-2 text-lg bg-green-500 rounded-full w-fit px-4 mb-5'>Completed</p>
+                                            :
+                                            <p className='p-2 bg-red-500 rounded-full w-fit px-4 mb-5'>Not Completed</p>
+                                    }
+
+                                    <p className='text-xl'>{task.text}</p>
+
+                                    <div className='flex gap-3'>
+                                        <button
+                                            onClick={() => { updateTask(index) }}
+                                        >
+                                            {task.completed ? 'Undo' : 'Done'}
+                                        </button>
+                                        <button>Delete</button>
+                                    </div>
+
+                                </div>
+                            )
+                        })
+                    }
+
                 </div>
 
             </div>
