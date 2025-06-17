@@ -1,4 +1,5 @@
 'use client';
+import { IconArrowBackUp, IconCircleCheck, IconTrash } from '@tabler/icons-react';
 import React, { useState } from 'react'
 
 const Todo = () => {
@@ -28,6 +29,14 @@ const Todo = () => {
         setTaskList([...temp]); // Update the task list with the modified task  
     }
 
+    const deleteTask = (index) => {
+        // console.log(index);
+
+        const temp = taskList;
+        temp.splice(index, 1); // Remove the task at the specified index
+        setTaskList([...temp]); // Update the task list with the modified task list
+    }
+
     return (
         <div className='min-h-screen bg-gray-100 flex flex-col items-center py-14'>
             <h1 className='text-center font-bold text-3xl mb-6'>ToDo List App</h1>
@@ -55,21 +64,24 @@ const Todo = () => {
                                             {
                                                 task.completed
                                                     ?
-                                                    <p className='p-2 text-lg bg-green-500 rounded-full w-fit px-4 mb-2'>Completed</p>
+                                                    <p className='p-2 text-sm text-white bg-green-500 rounded-full w-fit px-4 mb-2'>Completed</p>
                                                     :
-                                                    <p className='p-2 bg-red-500 rounded-full w-fit px-4 mb-2'>Not Completed</p>
+                                                    <p className='p-2 text-sm text-white bg-red-500 rounded-full w-fit px-4 mb-2'>Not Completed</p>
                                             }
                                             <p className='text-xl'>{task.text}</p>
                                         </div>
                                         <div className='flex gap-3'>
                                             <button
-                                                className='px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600'
+                                                className={`p-3 text-white rounded-lg ${task.completed ? 'bg-red-600' : 'bg-green-700'} `}
                                                 onClick={() => { updateTask(index) }}
                                             >
-                                                {task.completed ? 'Undo' : 'Done'}
+                                                {task.completed ? <IconArrowBackUp size={30} /> : <IconCircleCheck size={30} />}
                                             </button>
-                                            <button className='px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600'>
-                                                Delete
+                                            <button
+                                                className='p-3 bg-red-600 text-white rounded-lg hover:bg-red-700'
+                                                onClick={() => { deleteTask(index) }}
+                                            >
+                                                <IconTrash color='black' size={30} />
                                             </button>
                                         </div>
                                     </div>
@@ -81,7 +93,7 @@ const Todo = () => {
                 </div>
 
             </div>
-        </div>
+        </div >
     )
 }
 
