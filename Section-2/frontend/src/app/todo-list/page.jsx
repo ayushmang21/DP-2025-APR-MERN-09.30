@@ -50,26 +50,29 @@ const Todo = () => {
                         taskList.map((task, index) => {
                             return (
                                 <div key={index} className='border-b border-l p-3 mb-8'>
-
-                                    {
-                                        task.completed
-                                            ?
-                                            <p className='p-2 text-lg bg-green-500 rounded-full w-fit px-4 mb-5'>Completed</p>
-                                            :
-                                            <p className='p-2 bg-red-500 rounded-full w-fit px-4 mb-5'>Not Completed</p>
-                                    }
-
-                                    <p className='text-xl'>{task.text}</p>
-
-                                    <div className='flex gap-3'>
-                                        <button
-                                            onClick={() => { updateTask(index) }}
-                                        >
-                                            {task.completed ? 'Undo' : 'Done'}
-                                        </button>
-                                        <button>Delete</button>
+                                    <div className='flex justify-between items-center'>
+                                        <div>
+                                            {
+                                                task.completed
+                                                    ?
+                                                    <p className='p-2 text-lg bg-green-500 rounded-full w-fit px-4 mb-2'>Completed</p>
+                                                    :
+                                                    <p className='p-2 bg-red-500 rounded-full w-fit px-4 mb-2'>Not Completed</p>
+                                            }
+                                            <p className='text-xl'>{task.text}</p>
+                                        </div>
+                                        <div className='flex gap-3'>
+                                            <button
+                                                className='px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600'
+                                                onClick={() => { updateTask(index) }}
+                                            >
+                                                {task.completed ? 'Undo' : 'Done'}
+                                            </button>
+                                            <button className='px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600'>
+                                                Delete
+                                            </button>
+                                        </div>
                                     </div>
-
                                 </div>
                             )
                         })
