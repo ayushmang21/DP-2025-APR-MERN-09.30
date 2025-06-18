@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@tabler/icons-react": "^3.34.0",
+    "formik": "^2.4.6",
     "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.2",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
