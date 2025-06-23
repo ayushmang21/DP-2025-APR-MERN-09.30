@@ -1,8 +1,14 @@
 const express = require('express'); // Importing the express module
 
+const UserRouter = require('./routers/userRouter'); // Importing the user router from the routers directory
+
 const app = express(); // Creating an instance of an Express application
 
 const PORT = 5000; // Defining the port number for the server
+
+// Middleware
+
+app.use('/user', UserRouter); // Using the user router for any requests that start with '/user'
 
 //Routing
 
