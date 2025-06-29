@@ -52,3 +52,6 @@ body{
     background-color: rgb(71, 71, 239);
     margin-top: 40px;
 }
+.btn:hover{
+    background-color: rgb(0, 0, 0);
+}

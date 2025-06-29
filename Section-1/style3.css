@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('https://images.pexels.com/photos/391522/pexels-photo-391522.jpeg');
+}
+.card{
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 30%;
+    padding: 30px;
+    border-radius: 10px;
+}

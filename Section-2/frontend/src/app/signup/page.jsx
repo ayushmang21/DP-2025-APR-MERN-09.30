@@ -1,6 +1,8 @@
 'use client';
+import axios from 'axios';
 import { useFormik } from 'formik';
 import React from 'react'
+import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 
 const SignUpSchema = Yup.object().shape(
@@ -18,8 +20,8 @@ const SignUpSchema = Yup.object().shape(
         confirmPassword: Yup.string()
             .required('Confirm Password is required')
             .oneOf([Yup.ref('password'), null], 'Passwords must match..!!'),
-        acceptTerms: Yup.boolean()
-            .oneOf([true], 'Accept Terms & Conditions is required'),
+        // acceptTerms: Yup.boolean()
+        //     .oneOf([true], 'Accept Terms & Conditions is required'),
     }
 )
 
@@ -31,11 +33,19 @@ const Signup = () => {
             email: '',
             password: '',
             confirmPassword: '',
-            acceptTerms: false,
+            // acceptTerms: false,
         },
-        onSubmit: (values) => {
+        onSubmit: (values, { resetForm }) => {
             console.log(values);
 
+            axios.post('http://localhost:5000/user/add', values)
+                .then((result) => {
+                    toast.success('User registered successfully');
+                    resetForm();
+                }).catch((err) => {
+                    console.log(err);
+                    toast.error('Something went wrong, please try again later');
+                });
         },
         validationSchema: SignUpSchema,
     })
@@ -259,7 +269,7 @@ const Signup = () => {
                             </div>
                             {/* End Form Group */}
                             {/* Checkbox */}
-                            <div className="flex items-center">
+                            {/* <div className="flex items-center">
                                 <div className="flex">
                                     <input
                                         id="remember-me"
@@ -289,7 +299,7 @@ const Signup = () => {
                                         {signupForm.errors.acceptTerms}
                                     </p>
                                 )
-                            }
+                            } */}
                             {/* End Checkbox */}
                             <button
                                 type="submit"
