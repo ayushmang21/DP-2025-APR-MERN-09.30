@@ -1,10 +1,10 @@
-const arr = [785, 'hello', 3.14, true, null, undefined, {name: 'John'}, [1, 2, 3]];
+const arr = [785, 'hello', 3.14, true, null, undefined, { name: 'John' }, [1, 2, 3]];
 
 console.log(arr);
 
 console.log(typeof arr); // object
 
-const movies = [ 'ThunderBolts', 'Bhul Chuk Maaf', 'Final Destination 6', 'KesariVeer', 'Kesari Chapter-2' ]
+const movies = ['ThunderBolts', 'Bhul Chuk Maaf', 'Final Destination 6', 'KesariVeer', 'Kesari Chapter-2']
 
 console.log(movies.length);
 
@@ -44,3 +44,21 @@ movies.splice(2, 0, 'Avengers: Secret Wars'); // Adds 'Avengers: Secret Wars' at
 movies.splice(2, 1, 'Avengers: The Kang Dynasty'); // Replaces the element at index 2 with 'Avengers: The Kang Dynasty'
 
 console.log(movies);
+
+
+const fruits = ['Apple', 'Banana', 'Cherry', 'Date', 'Berry', 'Mango', 'Orange'];
+
+// 1 - Add 'Grapes' to the end of the array.
+// 2 - Remove 'Banana' from the array.
+// 3 - Replace 'Cherry' with 'Pineapple' using splice.
+// 4 - Add 'Fig' and 'Kiwi' after 'Date' using splice.
+// 5 - Slice the array to get the three fruits after 'Banana'.
+// 6 - Remove elements from the array starting from index 2 to 5.
+// 7 - Add 'Watermelon' at index 0.
+// 8 - Slice the array to only contain the fruit at index 3 and fruit at position 5.
+// 9 - Log the element at index -5.
+// 10 - Log the index of 'Mango' in the array.
+// 11 - Log the fruit at the last index. (W/O using at() method or indexOf() method).
+// 12 - Remove the 2nd,3rd, and 4th elements from the array using splice.
+// 13 - Log the length of the array.
+// 14 - Log index and position of 'Date', 'Banana', 'Orange' in the array.

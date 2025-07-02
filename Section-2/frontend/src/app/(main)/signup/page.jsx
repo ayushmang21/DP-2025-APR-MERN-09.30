@@ -15,6 +15,10 @@ const SignUpSchema = Yup.object().shape(
             .email('Invalid email')
             .required('Email is required'),
         password: Yup.string()
+            .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+            .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+            .matches(/[0-9]/, 'Password must contain at least one number')
+            .matches(/[^a-zA-Z0-9]/, 'Password must contain a special character')
             .min(7, 'Password must be at least 7 characters')
             .required('Password is required'),
         confirmPassword: Yup.string()
@@ -51,7 +55,7 @@ const Signup = () => {
     })
 
     return (
-        <div className=" w-1/4 mx-auto my-18 bg-white border border-gray-200 rounded-xl shadow-2xs dark:bg-neutral-900 dark:border-neutral-700">
+        <div className=" w-1/3 mx-auto my-18 bg-white border border-gray-200 rounded-xl shadow-2xs dark:bg-neutral-900 dark:border-neutral-700">
             <div className="p-4 sm:p-7">
                 <div className="text-center">
                     <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
@@ -214,7 +218,7 @@ const Signup = () => {
                                             viewBox="0 0 16 16"
                                             aria-hidden="true"
                                         >
-                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                            <path d="M16 8A8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
                                         </svg>
                                     </div>
                                 </div>
