@@ -1,4 +1,6 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const Model = require('../models/userModel'); // Importing the user model
 // This model is used to interact with the 'Users' collection in the MongoDB database.
@@ -70,6 +72,38 @@ router.put('/update/:id', (req, res) => {
         }).catch((err) => {
             res.status(500).json(err); // Sending an error response if updating fails
             console.log('Error updating user:', err.message); // Logging the error message to the console
+        });
+});
+
+// Authenticate
+
+router.post('/authenticate', (req, res) => {
+    Model.findOne(req.body)
+        .then((result) => {
+            if (result) {
+                // Authentication Successful
+                // Generate Token
+
+                const { _id, name, email } = result;
+                const payload = { _id, name, email };
+
+                jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1d' }, (err, token) => {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).json(err);
+                    } else {
+                        res.status(200).json({ token });
+                    }
+                })
+
+            } else {
+                // Auth Failed
+                res.status(401).json({ message: 'Invalid Credentials' });
+            }
+        }).catch((err) => {
+            res.status(500).json(err)
+            console.log(err);
+
         });
 })
 
